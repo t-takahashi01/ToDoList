@@ -17,7 +17,27 @@ const onClickAdd = () => {
   const completeButton = document.createElement("button");
   completeButton.innerText = "完了";
   completeButton.addEventListener("click", () => {
-    alert("完了");
+    // 完了したTODOのdivタグを生成
+    const completeDiv = document.createElement("div");
+    completeDiv.className = "list-row";
+
+    // 完了したTODOのliタグを生成
+    const completeLi = document.createElement("li");
+    completeLi.innerText = li.value;
+    completeDiv.appendChild(completeLi);
+
+    const returnButton = document.createElement("button");
+    returnButton.innerText = "戻す";
+
+    completeDiv.appendChild(returnButton);
+
+    // 完了したTODOリストに移動
+    document.getElementById("complete-list").appendChild(completeDiv);
+
+    //完了したTODOリストに移動したTODOを削除
+    const removeTarget = completeButton.parentNode;
+
+    document.getElementById("incomplete-list").removeChild(removeTarget);
   });
 
   // button(削除)タグ生成
